@@ -28,7 +28,9 @@ O banco de dados é organizado em quatro tabelas principais:
 A tabela `estoque` resolve o relacionamento muitos para muitos entre materiais e depósitos, utilizando uma chave primária composta pelos códigos do material e do depósito.
 
 ### Diagrama do modelo
+## Modelo de dados
 
+![Diagrama do banco de dados](C:\Users\Lucas Rodrigues\Downloads\almoxarifado\almoxarifado\Img)
 
 ## Como executar o projeto
 
