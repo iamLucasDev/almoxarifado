@@ -55,6 +55,6 @@ Esta seção será atualizada conforme os endpoints forem implementados e testad
 
 Para cada endpoint, serão documentados o método HTTP, a URL, os dados enviados, um exemplo de requisição e a resposta esperada.
 
-## Status do projeto
+## Status do projeto:
 
 Em desenvolvimento.
