@@ -1,0 +1,33 @@
+CREATE TABLE deposito (
+                          cod_deposito VARCHAR(10) PRIMARY KEY,
+                          nome VARCHAR(100) NOT NULL
+
+);
+
+
+CREATE TABLE material(
+                    cod_material VARCHAR(5) PRIMARY KEY,
+                    nome_material VARCHAR(20),
+                    descricao_material VARCHAR(200),
+                    unidade_medida varchar(5)
+);
+
+CREATE TABLE estoque(
+                  cod_material VARCHAR(5) ,
+                  cod_deposito VARCHAR(10) ,
+                  qtd_estoque INTEGER,
+                  PRIMARY KEY(cod_material,
+                          cod_deposito),
+                  FOREIGN KEY (cod_material) REFERENCES  material (cod_material),
+                  FOREIGN KEY (cod_deposito)  REFERENCES  deposito (cod_deposito)
+
+);
+CREATE  TABLE movimentacao(
+                  id_movimentacao INTEGER PRIMARY KEY,
+                  cod_material VARCHAR(5),
+                  cod_deposito VARCHAR(10),
+                  FOREIGN KEY (cod_material,cod_deposito) REFERENCES  estoque (cod_material,cod_deposito),
+                  tipo_movimentacao VARCHAR(10),
+                  qtd_movimentacao INTEGER,
+                  data_hora TIMESTAMP
+);
