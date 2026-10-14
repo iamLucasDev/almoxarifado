@@ -29,8 +29,7 @@ A tabela `estoque` resolve o relacionamento muitos para muitos entre materiais e
 
 ### Diagrama do modelo
 ## Modelo de dados
-
-![Diagrama do banco de dados](C:\Users\Lucas Rodrigues\Downloads\almoxarifado\almoxarifado\Img)
+![Diagrama do banco de dados](docs/modelo-dados.png)
 
 ## Como executar o projeto
 
