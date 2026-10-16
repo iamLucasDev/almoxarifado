@@ -38,10 +38,6 @@ public class Movimentacao {
         this.idMovimentacao = idMovimentacao;
     }
 
-    public Estoque estoque() {
-        return estoque;
-    }
-
     public void setEstoque(Estoque estoque) {
         this.estoque = estoque;
     }
@@ -77,7 +73,7 @@ public class Movimentacao {
     public Movimentacao() {
     }
 
-    public Movimentacao(Integer idMovimentacao, Integer qtdMovimentacao, LocalDateTime dataHora, String tipoMovimentacao, Estoque codigosEstoque) {
+    public Movimentacao(Integer idMovimentacao, Integer qtdMovimentacao, LocalDateTime dataHora, String tipoMovimentacao, Estoque estoque) {
         this.idMovimentacao = idMovimentacao;
         this.qtdMovimentacao = qtdMovimentacao;
         this.dataHora = dataHora;
