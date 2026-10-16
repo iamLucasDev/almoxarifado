@@ -73,7 +73,7 @@ Os endpoints foram testados utilizando o Postman, verificando as consultas de es
 
 ### 1. Registro de movimentação
 
-![POST - Registro de movimentação](%20evidencias/postman-entrada.png.png))
+![POST - Registro de movimentação](%20evidencias/postman-entrada.png.png)
 
 ### 2. Validação de saída com estoque insuficiente
 
