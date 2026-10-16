@@ -104,6 +104,6 @@ Durante o desenvolvimento, foram praticados conceitos de:
 - Desenvolvimento e teste de APIs REST.
 - Comunicação cliente-servidor utilizando Socket, TCP e HTTP.
 
-## Status do projeto
+## Status do projeto:
 
 Desafio prático desenvolvido para consolidar conhecimentos em Java, banco de dados e desenvolvimento de APIs REST.
