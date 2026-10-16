@@ -29,7 +29,7 @@ A tabela `estoque` resolve o relacionamento muitos para muitos entre materiais e
 
 ### Diagrama do modelo
 
-![Diagrama do banco de dados](docs/modelo-dados.png)
+![Diagrama do banco de dados](docs/modelagem-dados.png)
 
 ## Como executar o projeto
 
