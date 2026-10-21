@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;
 
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -82,8 +83,13 @@ public class MovimentacaoService {
                 movimentacao.setEstoque(estoque);
 
                 return movimentacaoRepository.save(movimentacao);
+
             }
         }
+
+    public List<Movimentacao> listarMovimentacoes() {
+      return   movimentacaoRepository.findAll();
+    }
     }
 
 
