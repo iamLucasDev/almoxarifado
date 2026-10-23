@@ -1,13 +1,23 @@
-# Almoxarifado
+## Sistema de Almoxarifado
 
-Sistema de gerenciamento de almoxarifado desenvolvido com Java e Spring Boot, como projeto prático para aplicação de conceitos de modelagem de dados, SQL, JPA e desenvolvimento de APIs REST.
-
+Sistema de gerenciamento de almoxarifado desenvolvido com Java, Spring Boot e React, com o objetivo de praticar desenvolvimento de APIs REST, modelagem de dados, SQL e integração entre back-end e front-end.
 ## Objetivo
 
 Controlar materiais, depósitos, quantidades em estoque e movimentações de entrada e saída, mantendo a integridade dos dados e evitando movimentações que deixem o estoque negativo.
 
+
+
+## Visão geral do sistema
+
+![Diagrama do banco de dados](docs/Front-end-do-projeto.png)
+## Formulário de movimentações
+
+![Diagrama do banco de dados](docs/tabela-movimentacao.png)
+
+
 ## Tecnologias utilizadas
 
+## Back-end
 - Java
 - Spring Boot
 - Spring Data JPA
@@ -15,6 +25,23 @@ Controlar materiais, depósitos, quantidades em estoque e movimentações de ent
 - SQL
 - H2 Database
 - Maven
+
+## Front-end
+- React
+- JavaScript
+- HTML
+- CSS
+- Vite
+
+## Funcionalidades
+
+- Visualização dos depósitos cadastrados.
+- Visualização dos materiais e suas unidades de medida.
+- Consulta de movimentações de estoque.
+- Registro de movimentações por meio de formulário.
+- Integração do front-end com a API REST.
+- Validação de saídas para evitar estoque negativo no back-end.
+- As funcionalidades listadas devem corresponder ao que já está implementado no projeto.
 
 ## Modelo de dados
 
@@ -33,23 +60,52 @@ A tabela `estoque` resolve o relacionamento muitos para muitos entre materiais e
 
 ## Como executar o projeto
 
-1. Clone o repositório.
-2. Abra o projeto na IDE de sua preferência, como o IntelliJ IDEA.
-3. Confira as configurações de conexão com o banco no arquivo `src/main/resources/application.properties`.
-4. Execute a classe `AlmoxarifadoApplication`.
-5. Verifique o console para confirmar que a aplicação iniciou sem erros.
+## 1. Back-end
 
-Os scripts `schema.sql` e `data.sql`, localizados em `src/main/resources`, definem a estrutura do banco de dados e os dados iniciais.
+1. Instale um JDK compatível com a versão Java configurada no projeto.
+2. Abra a pasta principal no IntelliJ IDEA.
+3. Confira as configurações em src/main/resources/application.properties.
+4. Execute a classe AlmoxarifadoApplication.
+5. Verifique o console para confirmar que a aplicação iniciou sem erros.
+6. Os scripts schema.sql e data.sql, localizados em src/main/resources, definem a estrutura do banco de dados e os dados iniciais.
+
+## 2. Front-end
+
+1. Instale o Node.js.
+
+2. Abra a pasta frontend no VS Code.
+
+3. Execute os comandos abaixo no terminal:
+
+- npm install
+- npm run dev
+
+Acesse o endereço local exibido pelo Vite no terminal.
+
+Verifique se o back-end está em execução e se a URL da API está configurada corretamente no front-end.
 
 ## Estrutura do projeto
 
-- `src/main/java/`: código-fonte Java.
-- `src/main/resources/application.properties`: configurações da aplicação.
-- `src/main/resources/schema.sql`: criação das tabelas e restrições.
-- `src/main/resources/data.sql`: inserção dos dados iniciais.
-- `docs/modelo-dados.png`: diagrama do modelo de dados.
-- `evidencias/`: capturas de tela dos testes realizados.
-- `respostas.md`: respostas e justificativas técnicas do desafio.
+almoxarifado/
+## ├── src/                         # Back-end Java
+- │   └── main/
+- │       ├── java/
+- │       └── resources/
+- │           ├── application.properties
+- │           ├── schema.sql
+- │           └── data.sql
+## ├── frontend/                    # Front-end React
+- │   ├── src/
+- │   ├── public/
+- │   ├── package.json
+- │   └── index.html
+- ├── docs/                        # Documentação e imagens
+- │   ├── modelo-dados.png
+- │   ├── sistema-almoxarifado.png
+- │   └── formulario-movimentacoes.png
+- ├── evidencias/                  # Evidências dos testes da API
+- ├── pom.xml
+- └── README.md
 
 ## API REST
 
@@ -73,37 +129,38 @@ Os endpoints foram testados utilizando o Postman, verificando as consultas de es
 
 ### 1. Registro de movimentação
 
-![POST - Registro de movimentação](%20evidencias/postman-entrada.png.png)
+![POST - Registro de movimentação](evidencias/postman-entrada.png.png)
 
 ### 2. Validação de saída com estoque insuficiente
 
-![POST - Saída com estoque insuficiente](%20evidencias/postman-saida-invalida.png.png)
+![POST - Saída com estoque insuficiente](evidencias/postman-saida-invalida.png.png)
 
 ### 3. Consulta de estoque por material
 
-![GET - Estoque por material](%20evidencias/get-estoque-material.png.png)
+![GET - Estoque por material](evidencias/get-estoque-material.png.png)
 
 ### 4. Consulta de estoque por depósito
 
-![GET - Estoque por depósito](%20evidencias/get-estoque-deposito.png.png)
+![GET - Estoque por depósito](evidencias/get-estoque-deposito.png.png)
 
 ### 5. Teste de comunicação HTTP com Socket Java
 
 Além dos endpoints REST, foi desenvolvido um teste utilizando a classe `Socket` do Java para estabelecer uma conexão com a aplicação local na porta 8080, enviar uma requisição HTTP e ler a resposta recebida.
 
-![Teste de Socket Java](%20evidencias/teste-socket.png.png)
+![Teste de Socket Java](evidencias/teste-socket.png.png)
 
 ## Aprendizados
 
-Durante o desenvolvimento, foram praticados conceitos de:
-
+- Durante o desenvolvimento, foram praticados conceitos de:
 - Modelagem de dados e relacionamentos entre tabelas.
-- Chaves primárias, chaves estrangeiras e chave primária composta.
+- Chaves primárias, estrangeiras e chave primária composta.
 - Criação de tabelas e inserção de dados utilizando SQL.
 - Mapeamento objeto-relacional com JPA.
 - Desenvolvimento e teste de APIs REST.
+- Integração entre front-end e back-end.
+- Componentes e gerenciamento de estado com React.
 - Comunicação cliente-servidor utilizando Socket, TCP e HTTP.
 
 ## Status do projeto
 
-Desafio prático desenvolvido para consolidar conhecimentos em Java, banco de dados e desenvolvimento de APIs REST.
+Projeto em desenvolvimento, com back-end em Java e Spring Boot e interface em React. Novas funcionalidades e melhorias visuais poderão ser adicionadas progressivamente.

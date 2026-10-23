@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+}
+header{
+    background-color: black;
+    padding: 1em;
+}
+
+.titulo{
+    color: wheat;
+}
+
+.Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 1em;
+}
+
+.form-movimentacao{
+    width: 500px;
+    margin: auto;
+}
+
+.filedset-movi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+
+.form-movimentacao label{
+    color: black;
+}
+
+.form-movimentacao input{
+    width: 190px;
+}

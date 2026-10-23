@@ -1,0 +1,12 @@
+.Tabela-material,th,tr{
+  border:1px solid black;
+  padding: 5px;
+}
+
+.th-dados{
+      color: blue;
+}
+
+.th-principal{
+  color: black;
+}
