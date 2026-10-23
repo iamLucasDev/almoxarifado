@@ -26,5 +26,32 @@ VALUES ('M-104','Ferro','O ferro é um elemento químico metálico de símbolo F
 INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
 VALUES ('M-100','D-01',500);
 
+INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
+VALUES ('M-100','D-02',30);
+
+
+INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
+VALUES ('M-100','D-03',10);
+
+
+INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
+VALUES ('M-101','D-03',90);
+
+INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
+VALUES ('M-102','D-02',90);
+
+INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
+VALUES ('M-102','D-01',40);
+
+INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
+VALUES ('M-103','D-03',40);
+
+INSERT INTO estoque (cod_material,cod_deposito,qtd_estoque)
+VALUES ('M-104','D-03',100);
+
+
+
+
+
 INSERT INTO movimentacao(id_movimentacao,cod_material,cod_deposito,tipo_movimentacao,qtd_movimentacao,data_hora)
 VALUES (9,'M-100','D-01','SAIDA',2,'2026-10-13 16:30:00');
