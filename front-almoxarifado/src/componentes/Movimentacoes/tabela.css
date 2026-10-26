@@ -1,0 +1,28 @@
+.Tabela-deposito,tr{
+  border: 2px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+
+table{
+  box-shadow: 2px 2px 2px 2px  rgba(0, 0, 0, 0.3);
+  border: rgba(0, 0, 0, 0.9);
+  width: 500px;
+  background-color:rgba(40, 40, 112, 0.985);
+}
+   
+tr:hover {
+  background-color: rgba(115, 115, 172, 0.985); 
+}
+
+
+
+.Tabela-movimentacoes{
+    width: 1000px;
+}
+
+.th-principal,.td-dados{
+  color: white;
+  padding: 5px;
+}

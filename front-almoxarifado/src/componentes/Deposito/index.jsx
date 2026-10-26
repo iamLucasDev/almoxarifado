@@ -1,6 +1,8 @@
 
-import './deposito.css'
+import './tabela.css'
 import { useEffect,useState } from 'react';
+import {DadosEstoque} from '../../Apis/DepositoApi'
+
 
 export function TabelaDeposito(){
  
@@ -8,22 +10,13 @@ export function TabelaDeposito(){
 
 
      useEffect(()=>{
-           DadosEstoque()
-     });
+        async function  CarregaDados() {
+          const dadosApi = await DadosEstoque()
+          setdados(dadosApi)
+        }
+        CarregaDados()
+     },[])
 
-    async function DadosEstoque() {
-      const resposta =   await fetch ('http://localhost:8080/deposito')
-      try{
-
-       if (resposta.ok === false) {
-       throw new Error("Erro ao buscar depósitos");
-       }
-         const dadosApi = await resposta.json();
-         setdados(dadosApi)
-      }catch(erro){
-        console.log("Ocorreu um erro:", erro.message);
-      }
-  }
 
   
 

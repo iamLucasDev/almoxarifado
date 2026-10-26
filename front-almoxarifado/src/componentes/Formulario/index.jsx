@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {Movimentacoes } from '../Movimentacoes'
+import '../Formulario/form.css'
 
      
 
@@ -26,7 +26,7 @@ export function FormularioPost({atualizarTabela}){
             }
 
 
-    async function alteraTabela(e){
+       async function alteraTabela(e){
          e.preventDefault();
         console.log(objApi)
 
@@ -41,11 +41,10 @@ export function FormularioPost({atualizarTabela}){
         if (resposta.ok === false) {
        throw new Error("Erro ao fazer a movimentação");
        }
-       atualizarTabela();
-        
       }catch(erro){
         console.log("Ocorreu um erro:", erro.message);
       }
+      await atualizarTabela();
     }
 
 
@@ -88,7 +87,7 @@ export function FormularioPost({atualizarTabela}){
           <input type='datetime-local'
           name="dataHora" id="dataHora" value={date} onChange={(evento) => setdate(evento.target.value)} />
 
-          <button type="submit">Registrar</button>
+          <button type="submit" className="btn">Registrar</button>
           
         </fieldset>
         

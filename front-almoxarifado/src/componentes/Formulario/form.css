@@ -1,0 +1,50 @@
+.form-movimentacao{
+    width: 500px;
+    padding-bottom: 1em;
+      /* border-radius: 2px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ccc;
+     background-color:rgba(40, 40, 112, 0.985); */
+    margin:20px auto; 
+    border-radius: 8px;
+}
+
+.filedset-movi{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 300px;
+    margin: auto;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(119, 119, 205, 0.985);
+    background-color:rgba(40, 40, 112, 0.985) ;
+   border-radius: 5px;
+}
+h3{
+    color: black;
+}
+
+.form-movimentacao label{
+    color: #ccc;
+}
+
+
+.form-movimentacao input{
+    width: 190px;
+}
+
+.btn{
+    background-color: rgb(119, 119, 206);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.btn:hover{
+    background-color: blue;
+}
+
+

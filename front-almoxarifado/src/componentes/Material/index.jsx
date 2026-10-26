@@ -1,27 +1,20 @@
 import { useEffect, useState } from 'react'
-import './material.css'
+import {DadosMaterial} from  '../../Apis/MaterialApi'
+import './tabela.css'
 
 export function TabelaMaterial(){
 
   const [dadosM, setdadosM] = useState([])
 
   useEffect(()=>{
-    DadosMaterial();
-  })
+    async function CarregaDadosMaterial() {
+     const dadosApi = await DadosMaterial();
+      setdadosM(dadosApi)
+    }
+    CarregaDadosMaterial()
+  },[])
 
-     async function DadosMaterial() {
-      const resposta =   await fetch ('http://localhost:8080/materiais')
-      try{
 
-       if (resposta.ok === false) {
-       throw new Error("Erro ao buscar Materiai");
-       }
-         const dadosApi = await resposta.json();
-         setdadosM(dadosApi)
-      }catch(erro){
-        console.log("Ocorreu um erro:", erro.message);
-      }
-  }
 
 
     return(
@@ -46,10 +39,6 @@ export function TabelaMaterial(){
                <td className='td-dados'>{obj.unidadeMedida}</td>
                </tr>
               ))}
-              
-          {/* <th className='th-dados'>teste</th>
-          <th className='th-dados'>d-09</th>
-          <th className='th-dados'>KG</th> */}
 
       </tbody>
       </table>
