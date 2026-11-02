@@ -7,9 +7,10 @@
 
 table{
   box-shadow: 2px 2px 2px 2px  rgba(0, 0, 0, 0.3);
-  border: rgba(0, 0, 0, 0.9);
+  border: rgba(0, 0, 0, 0.9); 
   width: 500px;
   background-color:rgba(40, 40, 112, 0.985);
+  border-collapse: collapse;
 }
    
 tr:hover {
@@ -19,10 +20,11 @@ tr:hover {
 
 
 .Tabela-movimentacoes{
-    width: 1000px;
+    width: 800px;
 }
 
 .th-principal,.td-dados{
   color: white;
-  padding: 5px;
+  padding: 3px;
+ border: 2px solid white;
 }

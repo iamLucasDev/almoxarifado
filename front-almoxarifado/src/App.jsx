@@ -1,8 +1,6 @@
 
 import './App.css'
-import { TabelaDeposito } from './componentes/Deposito'
-import { TabelaMaterial } from './componentes/Material'
-import {Movimentacoes} from './componentes/Movimentacoes'
+import {Tabelas} from './componentes/Tabelas'
 
 function App() {
   return (
@@ -12,17 +10,8 @@ function App() {
       </header>
 
       <div className="Container">
-        <section>
-          <TabelaDeposito />
-        </section>
 
-        <section>
-          <TabelaMaterial />
-        </section>
-
-        <section>
-          <Movimentacoes />
-        </section>
+        <Tabelas />
       </div>
     </main>
   )

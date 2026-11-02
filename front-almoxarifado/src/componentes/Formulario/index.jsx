@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import '../Formulario/form.css'
 
+
      
 
-export function FormularioPost({atualizarTabela}){
+export function FormularioPost({setValor}){
 
     const [material, setMaterial] = useState('');
     const [deposito, setDeposito] = useState('');
@@ -26,7 +27,7 @@ export function FormularioPost({atualizarTabela}){
             }
 
 
-       async function alteraTabela(e){
+       async function AlteraTabela(e){
          e.preventDefault();
         console.log(objApi)
 
@@ -38,21 +39,21 @@ export function FormularioPost({atualizarTabela}){
             body:JSON.stringify(objApi)
         })
 
+
         if (resposta.ok === false) {
        throw new Error("Erro ao fazer a movimentação");
        }
+       setValor(valorAtual => !valorAtual);
       }catch(erro){
         console.log("Ocorreu um erro:", erro.message);
       }
-      await atualizarTabela();
     }
-
 
 
 
     return(
         <div>
- <form onSubmit={alteraTabela} method='post' className='form-movimentacao'>
+ <form onSubmit={AlteraTabela} method='post' className='form-movimentacao'>
          <h3>Formulario movimentacões</h3>
         <fieldset className='filedset-movi'>
          <label>Escolha o id material</label>
@@ -97,4 +98,3 @@ export function FormularioPost({atualizarTabela}){
 
 
 }
-    
