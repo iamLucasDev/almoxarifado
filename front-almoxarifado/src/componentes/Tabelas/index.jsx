@@ -1,44 +1,57 @@
-import { useEffect, useState } from "react"
+
 import { FormularioPost } from '../Formulario'
 import { DadosEstoque } from '../../Apis/DepositoApi'
 import { DadosMaterial } from '../../Apis/MaterialApi'
 import { DadosMovimentacao } from '../../Apis/MovimentacaoApi'
+import {useQuery} from '@tanstack/react-query'
 import './tabelas.css'
 
+   const queryKeys = {
+     materiais: ["materiais"],
+     estoque: ["estoque"],
+     movimentacoes: ["movimentacoes"]
+   };
+
 export function Tabelas(){
+   
+   const {
+     data: dadosDeposito,
+     isLoading : isLoadingDeposito,
+     error:  errorDeposito
+    } = useQuery({
+     queryKey: queryKeys.estoque,
+     queryFn: DadosEstoque
+    });
 
-    const [dadosMovi, setdadosMovi] = useState([]);
-    const [dadosMaterial, setDadosMaterial] = useState([]);
-    const [dadosDeposito, setDadosDeposito] = useState([]);
-    const [valor , setValor] = useState(false)
+
+    const {
+      data: dadosMaterial,
+      isLoading:  isLoadingMaterial,
+      error: errorMaterial
+     } = useQuery({
+      queryKey: queryKeys.materiais,
+      queryFn: DadosMaterial
+     });
+    
+    const {
+      data: dadosMovi,
+      isLoading:  isLoadingMovi,
+      error:  errorMovi
+     } = useQuery({
+      queryKey: queryKeys.movimentacoes,
+      queryFn: DadosMovimentacao
+     });
 
 
-
-
-    async function CarregaDadosDeposito() {
-        const dadosApiDeposi = await DadosEstoque()
-        setDadosDeposito(dadosApiDeposi)
+    
+    if(isLoadingMaterial || isLoadingDeposito || isLoadingMovi){
+        return <p>Carregando</p>
     }
 
-    async function CarregaDadosMaterial() {
-        const dadosApi = await DadosMaterial();
-        setDadosMaterial(dadosApi)
+    if(errorMaterial || errorDeposito || errorMovi){
+        return <p>error</p>
     }
-        async function CarregaDadosApiMovi() {
-            const dadosApiMovi = await DadosMovimentacao();
-            setdadosMovi(dadosApiMovi)
-        }
-
-        
-        useEffect(() => {
-            CarregaDadosDeposito()
-            CarregaDadosMaterial()
-        },[])
-
-        useEffect(() => {
-            CarregaDadosApiMovi();
-        }, [valor])
-
+       
         
         return (
             <>
@@ -122,7 +135,7 @@ export function Tabelas(){
 
                         </tbody>
                     </table>
-                    <FormularioPost setValor={setValor}></FormularioPost>
+                    <FormularioPost></FormularioPost>
                 </section>
             </>
         )
