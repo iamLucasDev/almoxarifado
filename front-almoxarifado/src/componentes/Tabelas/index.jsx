@@ -1,62 +1,24 @@
 
 import { FormularioPost } from '../Formulario'
-import { DadosEstoque } from '../../Apis/DepositoApi'
-import { DadosMaterial } from '../../Apis/MaterialApi'
-import { DadosMovimentacao } from '../../Apis/MovimentacaoApi'
-import {useQuery} from '@tanstack/react-query'
+import {useGet} from '../../hooks/UseGet'
 import './tabelas.css'
 
-   const queryKeys = {
-     materiais: ["materiais"],
-     estoque: ["estoque"],
-     movimentacoes: ["movimentacoes"]
-   };
-
 export function Tabelas(){
-   
-   const {
-     data: dadosDeposito,
-     isLoading : isLoadingDeposito,
-     error:  errorDeposito
-    } = useQuery({
-     queryKey: queryKeys.estoque,
-     queryFn: DadosEstoque
-    });
 
-
-    const {
-      data: dadosMaterial,
-      isLoading:  isLoadingMaterial,
-      error: errorMaterial
-     } = useQuery({
-      queryKey: queryKeys.materiais,
-      queryFn: DadosMaterial
-     });
-    
-    const {
-      data: dadosMovi,
-      isLoading:  isLoadingMovi,
-      error:  errorMovi
-     } = useQuery({
-      queryKey: queryKeys.movimentacoes,
-      queryFn: DadosMovimentacao
-     });
-
-
-    
-    if(isLoadingMaterial || isLoadingDeposito || isLoadingMovi){
-        return <p>Carregando</p>
-    }
-
-    if(errorMaterial || errorDeposito || errorMovi){
-        return <p>error</p>
-    }
-       
-        
+    const { dadosDeposito,dadosMaterial,dadosMovi,    
+            isLoadingDeposito,isLoadingMaterial,isLoadingMovi,
+            errorDeposito,errorMaterial,errorMovi } =  useGet();
+            
         return (
             <>
                 <section>
                     <h2>Tabela Deposito</h2>
+
+                    {isLoadingDeposito && <p>Carregando tabela Deposito...</p>}
+
+                    {errorDeposito && <p>Erro ao carregar tabela Deposito.</p>}
+                
+                   {!isLoadingDeposito && !errorDeposito && (
                     <table className='Tabela-deposito'>
                         <tbody>
                             <tr>
@@ -66,7 +28,6 @@ export function Tabelas(){
                         </tbody>
 
                         <tbody>
-
                             {dadosDeposito.map((obj) => (
                                 <tr key={obj.codDeposito}>
                                     <td className='td-dados'>{obj.nome}</td>
@@ -76,10 +37,18 @@ export function Tabelas(){
 
                         </tbody>
                     </table>
+                   )}
                 </section>
 
                 <section>
                     <h2>Tabela Material</h2>
+
+                {isLoadingMaterial && <p>Carregando tabela materiais...</p>}
+
+                {errorMaterial && <p>Erro ao carregar tabela materiais.</p>}
+
+                
+               {!isLoadingMaterial && !errorMaterial && (
 
                     <table className='Tabela-material'>
                         <tbody>
@@ -102,10 +71,17 @@ export function Tabelas(){
 
                         </tbody>
                     </table>
+               )}
                 </section>
 
                 <section>
                     <h2>Movimentaçoes</h2>
+
+                 {isLoadingMovi && <p>Carregando tabela de movimentações...</p>}
+
+                {errorMovi && <p>Erro ao carregar tabela de movimentações.</p>}
+
+               {!isLoadingMovi && !errorMovi && (
                     <table className='Tabela-movimentacoes'>
                         <tbody>
                             <tr>
@@ -135,6 +111,7 @@ export function Tabelas(){
 
                         </tbody>
                     </table>
+               )}
                     <FormularioPost></FormularioPost>
                 </section>
             </>

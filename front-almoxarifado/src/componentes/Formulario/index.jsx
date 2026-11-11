@@ -1,72 +1,16 @@
-import { useState } from "react";
+import {usePost} from '../../hooks/usePost'
 import '../Formulario/form.css'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-
 
 
 export function FormularioPost() {
 
+const {setMaterial,material,setDeposito,deposito,setQtd,qtd,setTipo,tipo,setdate,date,mutation,objApi} = usePost();
 
-
-  const [material, setMaterial] = useState('');
-  const [deposito, setDeposito] = useState('');
-  const [tipo, setTipo] = useState('');
-  const [qtd, setQtd] = useState('');
-  const [date, setdate] = useState('');
-
-
-  const objApi = {
-
-    "qtdMovimentacao": qtd,
-    "dataHora": date,
-    "tipoMovimentacao": tipo,
-    "estoque": {
-      "estoqueId": {
-        "codMaterial": material,
-        "codDeposito": deposito
-      }
-    }
-  }
-
-
-
-  async function AlteraTabela() {
-    const resposta = await fetch(
-      'http://localhost:8080/movimentacoes',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(objApi)
-      }
-    );
-
-    if (!resposta.ok) {
-      throw new Error('Erro ao cadastrar movimentação');
-    }
-
-    return resposta.json();
-  }
-
-  const queryClient = useQueryClient();
-
-  const mutation = useMutation({
-    mutationFn: AlteraTabela,
-
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: ['movimentacoes']
-      });
-    }
-  });
-
-
-  function Enviar(e){
+function Enviar(e){
     e.preventDefault();
-
     mutation.mutate(objApi)
-  }
+}
+  
 
 
   return (
