@@ -55,7 +55,7 @@ export function Tabelas(){
                             <tr>
                                 <th className='th-principal'>Nome material</th>
                                 <th className='th-principal'>Codigo material</th>
-                                <th className='th-principal'>unida de Medida</th>
+                                <th className='th-principal'>Unidade de Medida</th>
                             </tr>
 
                         </tbody>

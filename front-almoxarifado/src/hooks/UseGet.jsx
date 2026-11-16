@@ -44,6 +44,7 @@ export function useGet(){
 
    
       return {
+
         dadosDeposito: dadosDeposito ?? [],
         dadosMaterial: dadosMaterial ?? [],
         dadosMovi: dadosMovi ?? [],
