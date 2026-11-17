@@ -35,3 +35,33 @@ tr:hover {
   padding: 3px;
  border: 2px solid white;
 }
+
+
+.erroTable{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 3px;
+  border-radius: 2px;
+  border: 2px solid #cccc;
+}
+
+.erroTable h3,
+.erroTable p{
+  margin: 1px;
+}
+
+
+.erroRequisicao {
+    color: red;
+    font-size: 14px;
+    background-color: rgb(246, 196, 196);
+    width: 120px;
+    padding: 2px;
+    font-weight: bold;
+}
+
+.loading{
+  color: #6d9ae1;
+}

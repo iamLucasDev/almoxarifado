@@ -14,9 +14,16 @@ export function Tabelas(){
                 <section>
                     <h2>Tabela Deposito</h2>
 
-                    {isLoadingDeposito && <p>Carregando tabela Deposito...</p>}
+                    {isLoadingDeposito && <p className='loading'>Carregando tabela Deposito...</p>}
 
-                    {errorDeposito && <p>Erro ao carregar tabela Deposito.</p>}
+                    {errorDeposito && (
+                     <div className='erroTable'>
+                            <h3>Não foi possível carregar os depósitos.</h3>
+                            <p>Verifique sua conexão com o servidor e tente novamente.</p>
+                            <p className="erroRequisicao">Erro na requisição</p>
+                     </div>
+                    )}
+                
                 
                    {!isLoadingDeposito && !errorDeposito && (
                     <table className='Tabela-deposito'>
@@ -43,9 +50,15 @@ export function Tabelas(){
                 <section>
                     <h2>Tabela Material</h2>
 
-                {isLoadingMaterial && <p>Carregando tabela materiais...</p>}
+                {isLoadingMaterial && <p className='loading'>Carregando tabela materiais...</p>}
 
-                {errorMaterial && <p>Erro ao carregar tabela materiais.</p>}
+                   {errorMaterial && (
+                     <div className='erroTable'>
+                            <h3>Não foi possível carregar os materiais.</h3>
+                            <p>Verifique sua conexão com o servidor e tente novamente.</p>
+                            <p className="erroRequisicao">Erro na requisição</p>
+                     </div>
+                    )}
 
                 
                {!isLoadingMaterial && !errorMaterial && (
@@ -77,9 +90,16 @@ export function Tabelas(){
                 <section>
                     <h2>Movimentaçoes</h2>
 
-                 {isLoadingMovi && <p>Carregando tabela de movimentações...</p>}
+                 {isLoadingMovi && <p className='loading'>Carregando tabela de movimentações...</p>}
 
-                {errorMovi && <p>Erro ao carregar tabela de movimentações.</p>}
+                 {errorMovi && (
+                     <div className='erroTable'>
+                            <h3>Não foi possível carregar as movimentações.</h3>
+                            <p>Verifique sua conexão com o servidor e tente novamente.</p>
+                            <p className="erroRequisicao">Erro na requisição</p>
+                     </div>
+                    )}
+
 
                {!isLoadingMovi && !errorMovi && (
                     <table className='Tabela-movimentacoes'>
