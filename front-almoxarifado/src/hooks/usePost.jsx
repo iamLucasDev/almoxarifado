@@ -52,8 +52,13 @@ export function usePost(){
       queryClient.invalidateQueries({
         queryKey: ['movimentacoes']
       });
+    },
+        onError: () => {
+      alert( "Erro ao realizar movimentação.");
     }
-  });
+  })
+
+
 
    return {setMaterial,material,setDeposito,deposito,setQtd,qtd,setTipo,tipo,setdate,date,mutation,objApi}
 }
