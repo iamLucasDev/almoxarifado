@@ -109,15 +109,18 @@ almoxarifado/
 
 ## API REST
 
-A aplicação disponibiliza endpoints para registrar movimentações e consultar o estoque por material ou depósito.
+A aplicação disponibiliza endpoints para consulta de dados e gerenciamento das movimentações de estoque.
 
 | Método | Endpoint | Descrição |
 |---|---|---|
-| POST | `/movimentacoes` | Registra uma movimentação de entrada ou saída e atualiza o estoque. |
+| GET | `/depositos` | Lista os depósitos cadastrados. |
+| GET | `/materiais` | Lista os materiais cadastrados. |
+| GET | `/movimentacoes` | Consulta o histórico de movimentações. |
 | GET | `/materiais/{codigo}/estoque` | Consulta o estoque de um material nos depósitos. |
 | GET | `/depositos/{codigo}/estoque` | Consulta os materiais e suas quantidades em um depósito. |
+| POST | `/movimentacoes` | Registra uma movimentação de entrada ou saída e atualiza o estoque. |
 
-### Validações
+### Validações e regras de negócio
 
 - Impede saídas com quantidade superior ao estoque disponível.
 - Utiliza chaves primárias e estrangeiras para manter a integridade dos relacionamentos.
