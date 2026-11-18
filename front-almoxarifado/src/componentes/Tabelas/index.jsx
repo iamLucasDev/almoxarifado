@@ -115,14 +115,14 @@ export function Tabelas(){
                             </tr>
                         </tbody>
                         <tbody>
-
+                             
 
                             {dadosMovi.map((obj) => (
                                 <tr key={obj.idMovimentacao}>
                                     <td className='td-dados'>{obj.idMovimentacao}</td>
                                     <td className='td-dados'>{obj.estoque.material.codMaterial}</td>
                                     <td className='td-dados'>{obj.estoque.deposito.codDeposito}</td>
-                                    <td className='td-dados'>{obj.tipoMovimentacao}</td>
+                                    <td className='td-dados td-dados-tipo'style={{color: obj.tipoMovimentacao === "Entrada" ? "green": "red"}}> {obj.tipoMovimentacao}</td>
                                     <td className='td-dados'>{obj.qtdMovimentacao}</td>
                                     <td className='td-dados'>{new Date(obj.dataHora).toLocaleString('pt-BR')}</td>
                                     <td className='td-dados'>{obj.estoque.qtdEstoque}</td>

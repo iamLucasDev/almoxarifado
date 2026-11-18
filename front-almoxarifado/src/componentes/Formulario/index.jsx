@@ -37,8 +37,8 @@ function Enviar(e){
           <label>Tipo de Movimentação</label>
           <select id="idTipo" name="idTipo" value={tipo} onChange={(evento) => setTipo(evento.target.value)}>
             <option value="" disabled>Escolha uma opção</option>
-            <option value="Entrada">Entrada</option>
-            <option value="Saida">Saida</option>
+            <option value="Entrada" className='entrada'>Entrada</option>
+            <option value="Saida" className='saida'>Saida</option>
           </select>
 
           <label>Quantidade:</label>
