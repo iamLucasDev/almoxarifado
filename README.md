@@ -12,7 +12,7 @@ Controlar materiais, depósitos, quantidades em estoque e movimentações de ent
 ![Diagrama do banco de dados](docs/home.png)
 ## Formulário de movimentações
 
-![Diagrama do banco de dados](docs/movimentações.png)
+![Diagrama do banco de dados](docs/Movimentações.png)
 
 
 ## Tecnologias utilizadas
